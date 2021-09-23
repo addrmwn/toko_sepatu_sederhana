@@ -33,10 +33,12 @@
 
        </div>
        <div class="mb-3">
-              <label>Harga Sepatu</label>
-              <input class="form-control" value="<?= $harga; ?>" disabled>
 
-          </div>
+											<label>Total Harga</label>
+                                        <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text text-primary">Rp</span></div>
+			                                    <input type="text" class="form-control" value="<?= format_rp($harga); ?>" disabled> </div>
+		                                    </div>
         <a href="<?= base_url('Sepatu');?>" type="submit" class="btn btn-primary btn-user btn-block">Kembali
         </a>
        <hr>

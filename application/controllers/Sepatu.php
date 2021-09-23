@@ -1,6 +1,7 @@
 <?php
 class Sepatu extends CI_Controller
 {
+
   public function index()
   {
     $this->load->view('templates/header');
@@ -9,6 +10,8 @@ class Sepatu extends CI_Controller
   }
   public function hasil()
   {
+    $this->load->helper('rupiah_helper');
+
     $nama = $this->input->post('nama');
     $nohp = $this->input->post('nohp');
     $merk = $this->input->post('merk');
@@ -24,9 +27,10 @@ class Sepatu extends CI_Controller
     } else if ($merk == "Bucherri"){
       $harga = "400000";
     } else {
-      $harga = "ANDA BELUM MEMILIH MERK !";
+      $harga = "0";
     }
-    $this->input->post('harga');
+    $this->input->post(floatval('harga'));
+
 
     $data = [
       'nama' => $nama,
@@ -35,6 +39,7 @@ class Sepatu extends CI_Controller
       'size' => $size,
       'harga' => $harga
     ];
+
 
   ////  $data = [
   ////  'nama' => $this->input->post('nama'),
@@ -45,7 +50,7 @@ class Sepatu extends CI_Controller
 
   ////  ];
 
-
+      $this->load->helper('rupiah_helper');
       $this->load->view('templates/header');
       $this->load->view('view-data-toko', $data);
 
